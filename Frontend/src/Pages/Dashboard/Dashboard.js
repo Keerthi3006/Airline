@@ -19,7 +19,7 @@ const Dashboard = () => {
         // ...
 
         const response = await axios.get(
-          `https://airline-4.onrender.com/api/book/getbookings/${userId}`,
+          `https://airline-management-2-4ow5.onrender.com/api/book/getbookings/${userId}`,
           {
             headers: {
               Authorization: token,
