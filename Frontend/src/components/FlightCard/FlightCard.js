@@ -26,7 +26,7 @@ const FlightCard = ({ flight }) => {
       console.log(dataToSend);
 
       // POST request using Axios
-      const response = await axios.post('https://airline-management-2-4ow5.onrender.com/api/book/bookflight', dataToSend, {
+      const response = await axios.post('https://airline-management-kd9w.onrender.com/api/book/bookflight', dataToSend, {
         headers: {
           Authorization: token,
           'Content-Type': 'application/json',
