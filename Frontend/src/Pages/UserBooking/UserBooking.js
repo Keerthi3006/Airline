@@ -40,7 +40,7 @@ const AirportApp = () => {
         flightDestination: destinationCity,
         startDate: formattedDate,
       };
-      const response = await axios.post('https://airline-management-2-4ow5.onrender.com/api/flight/getflightsByDate', formData, {
+      const response = await axios.post('https://airline-management-kd9w.onrender.com/api/flight/getflightsByDate', formData, {
         headers: {
           Authorization: token,
           'Content-Type': 'application/json',
