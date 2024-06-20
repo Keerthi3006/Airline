@@ -1,18 +1,8 @@
-// Login.js
 import React, { useState } from 'react';
 import './Login.css';
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 import Loading from '../../components/Loading/Loading';
-
-
-// const Loading = () => {
-//   return (
-//     <div className="loading-container">
-//       <div className="loading-spinner"></div>
-//     </div>
-//   );
-// };
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -26,13 +16,11 @@ const Login = () => {
 
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
-    console.log(e.target.value);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // Send login data to the backend
       setLoading(true);
       const response = await axios.post('https://airline-management-kd9w.onrender.com/api/user/login', {
         email,
@@ -40,26 +28,21 @@ const Login = () => {
       });
 
       setLoading(false);
-      console.log(response.data.token);
 
-
-      if (response.data.token) {
+      if (response.status === 200) {
         navigate('/user/userbooking');
+        // Set the authorization token and user ID in the context or redux store
       }
-      localStorage.setItem("authorization", JSON.stringify(response.data.token));
-      localStorage.setItem("userId", JSON.stringify(response.data.userId));
-      // ... (remaining code)
     } catch (error) {
-      // Handle login error
+      // Display an error message to the user
       console.error('Login error:', error.response.data);
     }
   };
 
-  const handleSignUp = async () => {
+  const handleSignUp = () => {
     console.log('Navigate to Sign Up page');
     navigate("/user/signup");
   };
-
 
   return (
     <div className="login-container">
@@ -88,9 +71,8 @@ const Login = () => {
           />
         </div>
 
-
         <button className="login-button" type="submit" disabled={loading}>
-        {loading ? 'Loading..' : 'Login'}
+          {loading ? 'Loading..' : 'Login'}
         </button>
       </form>
       <p className="signup-link">
