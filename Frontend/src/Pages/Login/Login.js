@@ -22,7 +22,7 @@ const Login = () => {
     e.preventDefault();
     try {
       setLoading(true);
-      const response = await axios.post('https://airline-management-kd9w.onrender.com/api/user/login', {
+      const response = await axios.post('https://airline-management-wzaz.onrender.com/api/user/login', {
         email,
         password,
       });
