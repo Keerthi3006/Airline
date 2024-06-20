@@ -23,7 +23,7 @@ const AdminLogin = () => {
     e.preventDefault();
     try {
       // Send login data to the backend
-      const response = await axios.post('https://airline-management-kd9w.onrender.com/api/user/login', {
+      const response = await axios.post('https://airline-management-wzaz.onrender.com/api/user/login', {
         email,
         password,
       });
